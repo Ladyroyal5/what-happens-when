@@ -410,6 +410,11 @@ control`_. This varies depending on the sender; the most common algorithms are
   (MSS) of the connection.
 * For each packet acknowledged, the window doubles in size until it reaches the
   'slow-start threshold'. In some implementations, this threshold is adaptive.
+  TCP transfers will slow down when packets are lost, so actively dropping a few 
+
+  packets before the router is completely full is a way to ask for the incoming 
+
+  traffic to slow down.
 * After reaching the slow-start threshold, the window increases additively for
   each packet acknowledged. If a packet is dropped, the window reduces
   exponentially until another packet is acknowledged.
@@ -419,7 +424,7 @@ HTTP protocol
 
 If the web browser used was written by Google, instead of sending an HTTP
 request to retrieve the page, it will send a request to try and negotiate with
-the server an "upgrade" from HTTP to the SPDY protocol.
+the server an "upgrade" rom HTTP to the SPDY protocol.
 
 If the client is using the HTTP protocol and does not support SPDY, it sends a
 request to the server of the form::
